@@ -16,14 +16,21 @@
 /* declaring variables for spcific properties */
 :root{
 
-    --color-white:hsl(252,30%,100%);
-    --color-light:hsl(252,30%,95%);
+    --primary-color-hue:252;
+    --dark-color-lightness:17%;
+    --light-color-lightness:95%;
+    --white-color-lightness:100%;
+
+
+
+    --color-white:hsl(252,30%,var(--white-color-lightness));
+    --color-light:hsl(252,30%,var(--light-color-lightness));
     --color-gray:hsl(252,15%,65%);
-    --color-primary:hsl(252,75%,60%);
+    --color-primary:hsl(var(--primary-color-hue),75%,60%);
     --color-secondary:hsl(252,100%,90%);
     --color-success:hsl(120,95%,65%);
     --color-danger:hsl(0,95%,65%);
-    --color-dark:hsl(252,30%,1%);
+    --color-dark:hsl(252,30%,var(--dark-color-lightness));
     --color-black:hsl(252,30%,10%);
 
     --border-radius:2rem;
@@ -43,6 +50,7 @@ body{
     background:var(--color-light);
     /* to not have scroll bar horizontally */
     overflow-x:hidden;
+    transform: scale(1);
 }
 
 .container{
@@ -161,7 +169,7 @@ main{
 
 main .container{
     display:grid;
-    grid-template-columns:18vw auto 20vw ;
+    grid-template-columns:20% auto 25% ;
     column-gap:2rem;
     position:relative;
 }
@@ -169,6 +177,7 @@ main .container{
  main .container .left{
 
     height: max-content;
+   
     position: sticky;
      top:var(--sticky-top-left);
 }
@@ -490,6 +499,7 @@ main .container .left .profile{
 main .container .right
 {
     height:max-content;
+ 
     position:sticky;
     top:var(--sticky-top-left);
     bottom:0;
@@ -605,25 +615,26 @@ main .container .right
 /* ***********************************THEME COSTUMAZIED**************************** */
 .customized-theme{
     background:rgba(255,255,255,0.5);
-   width:100vw;
-   height:100vw;
+     width:100vw;
+    height:100vh;
     position:fixed;
-    top:0em;
+    top:0rem;
     left:0rem; 
     z-index: 100;
     align-content:center;/*verticallly*/
     display:grid;
     place-items:center;/*horizontzlly*/
     font-size:0.9rem;
-
     display: none;
 }
 
 .customized-theme .card{
     background:var(--color-white);
+   
     padding:3rem;
     border-radius: var(--card-border-radius);
     width:50%;
+    box-shadow: 0 0 1rem var(--color-primary);
 }
 /* ***************************FONT_SIZE **********************/
 
@@ -748,3 +759,94 @@ main .container .right
     margin-right: 1rem;
 }
 
+
+
+
+/* *******************************RESPONSIVE DESIGN************************************/
+/* ************************MEDIAQUEARY*********************************************** */
+
+/* *****************************FOR SMALL LAPTOPS AND BIG TABLETS******************** */
+
+@media screen and (max-width:1200px){
+    .container{
+        width:95%;
+    }
+    main .container{
+        grid-template-columns: 5rem auto 20vw;
+    }
+    .left{
+        width:5rem;
+        z-index:5;
+    }
+    
+    main .container .left .profile{
+        display:none;
+    }
+    .sidebar h3{
+        display:none;
+    }
+    .left .btn{
+        display:none;
+    }
+
+    .customized-theme .card{
+        width:80vw;
+    }
+
+}
+
+/* **********MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES********** */
+
+@media screen and (max-width:992px){
+
+    nav .search-bar{
+        display:none;
+    }
+
+    main .container{
+        grid-template-columns:0 auto 5rem;
+    }
+    main .container .left{
+/* 
+
+the grid lines or width dont specify the width of the items ---items will overflow is its not up to the spce ..makake item width:100% so it  cover the width provided by layout */
+
+       grid-column:3/4;
+
+       /* from line 3 to 4 */
+
+       /* When an element becomes sticky, its containing block changes from its parent container to the viewport. */
+
+       /* fixed remove elment from its normal work flow its not coorect soln thogh as it can overlap the content of its side elemnts --------------not working here*/
+        
+       position:fixed;
+       /* another point why its taking whole width ..width of it is not specifed so its taking the width of block as div is block */
+       bottom:0;
+       right:0;
+
+    }
+
+    /* ***********NOTIFICATION POP UP************** */
+    .left .notification-popup{
+        position:absolute;
+        left:-20rem;
+        width:20rem;
+    }
+       .left .notification-popup::before{
+        display:absolute;
+        top:1.3rem;
+        left:calc(20rem-0.6rem);
+        display:block;
+       }
+
+     
+
+       main .container .middle{
+        grid-column:1/3;
+       }
+
+       main .container .right{
+        display:none;
+       }
+/* it we start getting overlap after 850 smthing as the left is of 5 rem relative to font size of root element --html so its fixed widt is 3/4 coudnt hold it it will overlap other elements */
+}

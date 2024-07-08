@@ -7,6 +7,7 @@
     
     <!-- STYLESHEET -->
    <link rel="stylesheet" href="style.css">
+   
    <!-- ICON -->
    <link rel="icon" href="images/icon.png">
   
@@ -14,6 +15,7 @@
   
 </head>
 <body>
+    
 
     <nav>
         <div class="container">
@@ -53,7 +55,7 @@
                 </a>
                 <!-- *********************SIDEBAR***************** -->
                  <div class="sidebar">
-                    <a class="menu-items active">
+                    <a class="menu-items active ">
                         <span><img class="icon" src="images/home.png" alt="home"></span><h3>Home</h3>
                      </a>
                      <a  class="menu-items">
@@ -100,7 +102,7 @@
                     </a>
 
                     <a  class="menu-items" id="messages-notification">
-                       <span><img class="icon" src="images/messages.png" alt="message"><small class="notification-cout">6</small></span><h3>Messages</h3>
+                       <span><img class="icon" src="images/messages.png" alt="message"><small class="notification-count">6</small></span><h3>Messages</h3>
                     </a>
 
                     <a  class="menu-items">
@@ -110,7 +112,7 @@
                      <span> <img class="icon" src="images/analytics.png" alt="analytic"></span><h3>Analytics</h3>
                     </a>
                     <a  class="menu-items">
-                       <span><img class="icon"  src="images/theme.png" alt="theme"></span><h3>theme</h3>
+                       <span><img class="icon" id="theme"  src="images/theme.png" alt="theme"></span><h3>theme</h3>
                     </a>
                     <a  class="menu-items">
                      <span> <img class="icon" src="images/setting.png" alt="setting"></span><h3>Settings</h3>
@@ -256,7 +258,7 @@
                              </div>
                         </div>
                         <div class="liked-by">
-                            <span ><img  class="user-profile" src="images/profile3.jpeg"></span><span  ><img class="user-profile" src="images/profile4.jpeg"></span><p>Liked by <b>john</b><b>200 others</b> </p>
+                            <span ><img  class="user-profile" src="images/profile3.jpeg"></span><span  ><img class="user-profile" src="images/profile6.jpeg"></span><p>Liked by <b>john</b><b>200 others</b> </p>
                          </div>
                        
                          <div class="caption">
@@ -361,12 +363,12 @@
                
                 <div class="messages">
                     <div class="headings">
-                        <h4 class="Meassages"><img class="icon" src="images/DM.png" ></h4>
+                        <h4 class="Messages"><img class="icon" src="images/DM.png" ></h4>
                     </div>
                     <!-- -------------SEARCHBAR---------------------- -->
                     <div class="search-bar">
                         <img src="images/search.png" >
-                        <input type="search" placeholder="message-search">
+                        <input type="search" placeholder="search messages" id="message-search">
                     </div>
                 <!----------------------------MEASSAGE CATOGORY----------------->
                     <div class="category">
@@ -402,7 +404,7 @@
                     </div>
                     <div class="message-body">
                         <h5>tae</h5>
-                        <p class="text-bold">ohkkkkkkk see you</p>
+                        <p class="text-muted">ohkkkkkkk see you</p>
                     </div>
                  </div>
                  <!----------------------------END OF MESSAGES------------------- -->
@@ -536,5 +538,6 @@
    
 
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
